@@ -44,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
         // Update animator if available
         UpdateAnimator();
 
-        // Handle interaction input
-        if (Input.GetButtonDown("Fire1")) // Default: Left Ctrl or Mouse 0
+        // Handle interaction input - SPACEBAR
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Interact();
         }
