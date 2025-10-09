@@ -1,90 +1,164 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class InventoryUI : MonoBehaviour
 {
-    [Header("UI Elements")]
-    public Image itemIcon;
-    public Text itemName;
-    public Text itemDescription;
-    public GameObject itemPanel;
+    [Header("Item Slots")]
+    public Image hulaLeiIcon;
+    public Image sunShadesIcon;
+    public Image partyHatIcon;
 
-    [Header("Settings")]
-    public float displayDuration = 3f;
+    [Header("Item Acquisition Popup")]
+    public GameObject itemPopup;
+    public Image popupIcon;
+    public Text popupItemName;
+    public Text popupDescription;
+    public float popupDuration = 3f;
 
-    private float displayTimer = 0f;
+    [Header("Persistent Display")]
+    public GameObject inventoryPanel;
+    public Text abilityListText;
+
+    private float popupTimer = 0f;
+    private Dictionary<ItemType, Image> itemSlots = new Dictionary<ItemType, Image>();
 
     private void Start()
     {
-        if (itemPanel != null)
+        SetupItemSlots();
+
+        // Hide all icons initially
+        SetIconVisibility(hulaLeiIcon, false);
+        SetIconVisibility(sunShadesIcon, false);
+        SetIconVisibility(partyHatIcon, false);
+
+        if (itemPopup != null)
         {
-            itemPanel.SetActive(false);
+            itemPopup.SetActive(false);
         }
 
         // Subscribe to inventory events
         if (PlayerInventory.Instance != null)
         {
-            PlayerInventory.Instance.OnItemEquipped += DisplayItem;
+            PlayerInventory.Instance.OnItemEquipped += OnItemAcquired;
+            PlayerInventory.Instance.OnItemRemoved += OnItemRemoved;
         }
+
+        UpdateAbilityList();
+    }
+
+    private void SetupItemSlots()
+    {
+        if (hulaLeiIcon != null)
+            itemSlots[ItemType.HulaLei] = hulaLeiIcon;
+        if (sunShadesIcon != null)
+            itemSlots[ItemType.SunShades] = sunShadesIcon;
+        if (partyHatIcon != null)
+            itemSlots[ItemType.PartyHat] = partyHatIcon;
     }
 
     private void OnDestroy()
     {
         if (PlayerInventory.Instance != null)
         {
-            PlayerInventory.Instance.OnItemEquipped -= DisplayItem;
+            PlayerInventory.Instance.OnItemEquipped -= OnItemAcquired;
+            PlayerInventory.Instance.OnItemRemoved -= OnItemRemoved;
         }
     }
 
     private void Update()
     {
-        if (displayTimer > 0)
+        if (popupTimer > 0)
         {
-            displayTimer -= Time.deltaTime;
+            popupTimer -= Time.deltaTime;
 
-            if (displayTimer <= 0 && itemPanel != null)
+            if (popupTimer <= 0 && itemPopup != null)
             {
-                itemPanel.SetActive(false);
+                itemPopup.SetActive(false);
             }
         }
     }
 
-    public void DisplayItem(Item item)
+    private void OnItemAcquired(Item item)
     {
-        if (item == null)
+        if (item == null) return;
+
+        // Update persistent inventory icon
+        if (itemSlots.ContainsKey(item.itemType))
         {
-            if (itemPanel != null)
+            Image icon = itemSlots[item.itemType];
+            if (icon != null && item.icon != null)
             {
-                itemPanel.SetActive(false);
+                icon.sprite = item.icon;
+                SetIconVisibility(icon, true);
             }
-            return;
         }
 
-        // Update UI elements
-        if (itemIcon != null)
+        // Show acquisition popup
+        ShowItemPopup(item);
+
+        // Update ability list
+        UpdateAbilityList();
+    }
+
+    private void OnItemRemoved(Item item)
+    {
+        if (item == null) return;
+
+        // Hide inventory icon
+        if (itemSlots.ContainsKey(item.itemType))
         {
-            itemIcon.sprite = item.icon;
-            itemIcon.enabled = item.icon != null;
+            Image icon = itemSlots[item.itemType];
+            SetIconVisibility(icon, false);
         }
 
-        if (itemName != null)
+        // Update ability list
+        UpdateAbilityList();
+    }
+
+    private void ShowItemPopup(Item item)
+    {
+        if (itemPopup == null) return;
+
+        // Update popup content
+        if (popupIcon != null)
         {
-            itemName.text = item.itemName;
+            popupIcon.sprite = item.icon;
+            popupIcon.enabled = item.icon != null;
         }
 
-        if (itemDescription != null)
+        if (popupItemName != null)
         {
-            itemDescription.text = item.description;
+            popupItemName.text = item.itemName;
         }
 
-        // Show panel
-        if (itemPanel != null)
+        if (popupDescription != null)
         {
-            itemPanel.SetActive(true);
+            popupDescription.text = item.description;
         }
 
-        displayTimer = displayDuration;
+        // Show popup
+        itemPopup.SetActive(true);
+        popupTimer = popupDuration;
+    }
+
+    private void UpdateAbilityList()
+    {
+        if (abilityListText != null && PlayerInventory.Instance != null)
+        {
+            abilityListText.text = "Abilities: " + PlayerInventory.Instance.GetActiveAbilities();
+        }
+    }
+
+    private void SetIconVisibility(Image icon, bool visible)
+    {
+        if (icon != null)
+        {
+            icon.enabled = visible;
+
+            // Also enable/disable the icon's GameObject if you want
+            // icon.gameObject.SetActive(visible);
+        }
     }
 }

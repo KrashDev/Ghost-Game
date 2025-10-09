@@ -7,16 +7,22 @@ public class PlayerInventory : MonoBehaviour
     public static PlayerInventory Instance { get; private set; }
 
     [Header("Equipped Items")]
-    public Item equippedItem;
+    public List<Item> equippedItems = new List<Item>();
 
-    [Header("Visual")]
-    public SpriteRenderer itemOverlayRenderer;
+    [Header("Visual Overlays")]
+    public SpriteRenderer hulaLeiOverlay;
+    public SpriteRenderer sunShadesOverlay;
+    public SpriteRenderer partyHatOverlay;
+    public Vector3 itemOffset = new Vector3(0, 0.5f, 0);
 
-    private HashSet<ItemType> collectedItems = new HashSet<ItemType>();
+    private Dictionary<ItemType, Item> itemCollection = new Dictionary<ItemType, Item>();
 
     // Events
     public delegate void ItemEquipped(Item item);
     public event ItemEquipped OnItemEquipped;
+
+    public delegate void ItemRemoved(Item item);
+    public event ItemRemoved OnItemRemoved;
 
     private void Awake()
     {
@@ -32,9 +38,31 @@ public class PlayerInventory : MonoBehaviour
 
     private void Start()
     {
-        if (itemOverlayRenderer != null)
+        SetupOverlays();
+    }
+
+    private void SetupOverlays()
+    {
+        // Setup each overlay renderer
+        if (hulaLeiOverlay != null)
         {
-            itemOverlayRenderer.enabled = false;
+            hulaLeiOverlay.enabled = false;
+            hulaLeiOverlay.sortingOrder = 11;
+            hulaLeiOverlay.transform.localPosition = itemOffset;
+        }
+
+        if (sunShadesOverlay != null)
+        {
+            sunShadesOverlay.enabled = false;
+            sunShadesOverlay.sortingOrder = 11;
+            sunShadesOverlay.transform.localPosition = itemOffset;
+        }
+
+        if (partyHatOverlay != null)
+        {
+            partyHatOverlay.enabled = false;
+            partyHatOverlay.sortingOrder = 12;
+            partyHatOverlay.transform.localPosition = itemOffset;
         }
     }
 
@@ -42,52 +70,94 @@ public class PlayerInventory : MonoBehaviour
     {
         if (item == null) return;
 
-        collectedItems.Add(item.itemType);
-        EquipItem(item);
+        // Add to collection if not already present
+        if (!itemCollection.ContainsKey(item.itemType))
+        {
+            itemCollection.Add(item.itemType, item);
+            equippedItems.Add(item);
+
+            UpdateItemVisual(item, true);
+            OnItemEquipped?.Invoke(item);
+
+            Debug.Log($"Acquired {item.itemName}!");
+        }
     }
 
-    public void EquipItem(Item item)
+    public void RemoveItem(ItemType itemType)
     {
-        equippedItem = item;
-
-        // Update visual overlay
-        if (itemOverlayRenderer != null && item != null)
+        if (itemCollection.ContainsKey(itemType))
         {
-            if (item.characterOverlay != null)
+            Item item = itemCollection[itemType];
+            itemCollection.Remove(itemType);
+            equippedItems.Remove(item);
+
+            UpdateItemVisual(item, false);
+            OnItemRemoved?.Invoke(item);
+        }
+    }
+
+    private void UpdateItemVisual(Item item, bool show)
+    {
+        SpriteRenderer targetOverlay = GetOverlayForItem(item.itemType);
+
+        if (targetOverlay != null)
+        {
+            if (show && item.characterOverlay != null)
             {
-                itemOverlayRenderer.sprite = item.characterOverlay;
-                itemOverlayRenderer.enabled = true;
+                targetOverlay.sprite = item.characterOverlay;
+                targetOverlay.enabled = true;
             }
             else
             {
-                itemOverlayRenderer.enabled = false;
+                targetOverlay.enabled = false;
             }
         }
-        else if (itemOverlayRenderer != null)
-        {
-            itemOverlayRenderer.enabled = false;
-        }
+    }
 
-        OnItemEquipped?.Invoke(item);
+    private SpriteRenderer GetOverlayForItem(ItemType itemType)
+    {
+        switch (itemType)
+        {
+            case ItemType.HulaLei:
+                return hulaLeiOverlay;
+            case ItemType.SunShades:
+                return sunShadesOverlay;
+            case ItemType.PartyHat:
+                return partyHatOverlay;
+            default:
+                return null;
+        }
     }
 
     public bool HasItem(ItemType type)
     {
-        return collectedItems.Contains(type);
+        return itemCollection.ContainsKey(type);
     }
 
     public bool CanWalkOverHoles()
     {
-        return equippedItem != null && equippedItem.canWalkOverHoles;
+        return HasItem(ItemType.HulaLei);
     }
 
     public bool CanSeeHidden()
     {
-        return equippedItem != null && equippedItem.canSeeHidden;
+        return HasItem(ItemType.SunShades);
     }
 
     public bool CanPassThroughWalls()
     {
-        return equippedItem != null && equippedItem.canPassThroughWalls;
+        return HasItem(ItemType.PartyHat);
+    }
+
+    // Get all active abilities as a readable string
+    public string GetActiveAbilities()
+    {
+        List<string> abilities = new List<string>();
+
+        if (CanWalkOverHoles()) abilities.Add("Walk Over Holes");
+        if (CanSeeHidden()) abilities.Add("See Hidden");
+        if (CanPassThroughWalls()) abilities.Add("Pass Through Walls");
+
+        return abilities.Count > 0 ? string.Join(", ", abilities) : "None";
     }
 }
