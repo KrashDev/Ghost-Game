@@ -68,14 +68,18 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Items\PlayerInventory.cs" />
+    <Compile Include="Assets\Scripts\Teleporter.cs" />
     <Compile Include="Assets\Scripts\Items\Hole.cs" />
     <Compile Include="Assets\Scripts\Timer\GoalTrigger.cs" />
+    <Compile Include="Assets\Scripts\TeleporterManager.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\Items\PhantomWall.cs" />
     <Compile Include="Assets\Scripts\Items\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\Timer\GameTimer.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Items\Chest.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\SimpleTeleporter.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
   </ItemGroup>
