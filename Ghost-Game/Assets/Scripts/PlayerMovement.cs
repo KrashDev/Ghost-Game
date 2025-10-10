@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
     private Vector2 lastMovement;
 
+        private float horizontalInput;
+    private bool facingRight = true;
+
     void Awake()
     {
         // Auto-assign components if not set in inspector
@@ -49,12 +52,37 @@ public class PlayerMovement : MonoBehaviour
         {
             Interact();
         }
+
+        // Get input from arrow keys or A/D
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        // Handle direction change
+        if (horizontalInput > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (horizontalInput < 0 && facingRight)
+        {
+            Flip();
+        }
+
     }
 
     void FixedUpdate()
     {
         // Move the player using physics
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    void Flip()
+    {
+        // Toggle the facing direction
+        facingRight = !facingRight;
+
+        // Flip the player sprite by inverting the x scale
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 
     void UpdateAnimator()
