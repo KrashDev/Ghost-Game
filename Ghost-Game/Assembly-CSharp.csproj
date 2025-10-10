@@ -69,9 +69,11 @@
     <Compile Include="Assets\Scripts\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Items\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\Items\Hole.cs" />
+    <Compile Include="Assets\Scripts\Timer\GoalTrigger.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\Items\PhantomWall.cs" />
     <Compile Include="Assets\Scripts\Items\InventoryUI.cs" />
+    <Compile Include="Assets\Scripts\Timer\GameTimer.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Items\Chest.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem.cs" />
