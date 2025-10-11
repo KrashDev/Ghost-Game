@@ -2,41 +2,126 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("Movement")]
-    [SerializeField] private float moveSpeed = 5f;
+    [Header("Movement Settings")]
+    public float moveSpeed = 5f;
 
-    [Header("Components")]
+    [Header("Respawn Settings")]
+    public Transform respawnPoint;
+    public float fallDuration = 0.5f;
+
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
+    private Collider2D playerCollider;
+    private bool isFalling = false;
     private Vector2 movement;
 
-    private void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f; // Top-down movement
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        playerCollider = GetComponent<Collider2D>();
+
+        // Set respawn point to current position if not set
+        if (respawnPoint == null)
+        {
+            GameObject respawnObj = new GameObject("RespawnPoint");
+            respawnPoint = respawnObj.transform;
+            respawnPoint.position = transform.position;
+        }
     }
 
-    private void Update()
+    void Update()
     {
-        // Get input
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        // Normalize diagonal movement
-        movement = movement.normalized;
+        if (!isFalling)
+        {
+            // Get input
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+        }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        // Move the player
-        rb.velocity = movement * moveSpeed;
+        if (!isFalling)
+        {
+            // Move player
+            rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+        }
     }
 
-    public void SetMoveSpeed(float speed)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        moveSpeed = speed;
+        if (other.CompareTag("Hole") && !isFalling)
+        {
+            StartFalling();
+        }
+    }
+
+    void StartFalling()
+    {
+        isFalling = true;
+        playerCollider.enabled = false;
+
+        // Start fall animation
+        StartCoroutine(FallAndRespawn());
+    }
+
+    System.Collections.IEnumerator FallAndRespawn()
+    {
+        float elapsed = 0f;
+        Vector3 startScale = transform.localScale;
+
+        // Shrink and fade out
+        while (elapsed < fallDuration)
+        {
+            elapsed += Time.deltaTime;
+            float progress = elapsed / fallDuration;
+
+            // Scale down
+            transform.localScale = Vector3.Lerp(startScale, Vector3.zero, progress);
+
+            // Fade out
+            Color color = spriteRenderer.color;
+            color.a = 1f - progress;
+            spriteRenderer.color = color;
+
+            yield return null;
+        }
+
+        // Respawn
+        Respawn();
+    }
+
+    void Respawn()
+    {
+        // Reset position
+        transform.position = respawnPoint.position;
+
+        // Reset scale and alpha
+        transform.localScale = Vector3.one;
+        Color color = spriteRenderer.color;
+        color.a = 1f;
+        spriteRenderer.color = color;
+
+        // Re-enable
+        playerCollider.enabled = true;
+        isFalling = false;
+
+        // Reset movement
+        movement = Vector2.zero;
+        rb.velocity = Vector2.zero;
+    }
+
+    // Optional: Method to set respawn point dynamically
+    public void SetRespawnPoint(Vector3 newRespawnPoint)
+    {
+        if (respawnPoint == null)
+        {
+            GameObject respawnObj = new GameObject("RespawnPoint");
+            respawnPoint = respawnObj.transform;
+        }
+        respawnPoint.position = newRespawnPoint;
     }
 }

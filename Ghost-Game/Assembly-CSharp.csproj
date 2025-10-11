@@ -70,10 +70,12 @@
     <Compile Include="Assets\Scripts\Items\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\Teleporter.cs" />
     <Compile Include="Assets\Scripts\Items\Hole.cs" />
+    <Compile Include="Assets\Scripts\HoleTrigger.cs" />
     <Compile Include="Assets\Scripts\Timer\GoalTrigger.cs" />
     <Compile Include="Assets\Scripts\TeleporterManager.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\Items\PhantomWall.cs" />
+    <Compile Include="Assets\Scripts\RespawnPoint.cs" />
     <Compile Include="Assets\Scripts\Items\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\Timer\GameTimer.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
