@@ -13,8 +13,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 movement;
     private Vector2 lastMovement;
-
-        private float horizontalInput;
     private bool facingRight = true;
 
     void Awake()
@@ -44,28 +42,24 @@ public class PlayerMovement : MonoBehaviour
             lastMovement = movement;
         }
 
+        // Handle sprite flipping based on horizontal movement
+        if (movement.x > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (movement.x < 0 && facingRight)
+        {
+            Flip();
+        }
+
         // Update animator if available
-        //UpdateAnimator();
+        UpdateAnimator();
 
         // Handle interaction input - SPACEBAR
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Interact();
         }
-
-        // Get input from arrow keys or A/D
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-
-        // Handle direction change
-        if (horizontalInput > 0 && !facingRight)
-        {
-            Flip();
-        }
-        else if (horizontalInput < 0 && facingRight)
-        {
-            Flip();
-        }
-
     }
 
     void FixedUpdate()
@@ -90,13 +84,13 @@ public class PlayerMovement : MonoBehaviour
         if (animator == null) return;
 
         // Set movement parameters for animations
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.magnitude);
+        //animator.SetFloat("Horizontal", movement.x);
+        //animator.SetFloat("Vertical", movement.y);
+        //animator.SetFloat("Speed", movement.magnitude);
 
         // Set last movement direction for idle animations
-        animator.SetFloat("LastHorizontal", lastMovement.x);
-        animator.SetFloat("LastVertical", lastMovement.y);
+        //animator.SetFloat("LastHorizontal", lastMovement.x);
+        //animator.SetFloat("LastVertical", lastMovement.y);
     }
 
     void Interact()
