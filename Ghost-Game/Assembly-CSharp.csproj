@@ -56,9 +56,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="C:\Users\mrdga\Desktop\Unity Projects\Ghost-Game\Ghost-Game\Library\PackageCache\com.unity.collab-proxy@2.9.3\Lib\Editor\Unity.Plastic.Newtonsoft.Json.dll" />
-    <Analyzer Include="C:\Users\mrdga\Desktop\Unity Projects\Ghost-Game\Ghost-Game\Library\PackageCache\com.unity.collab-proxy@2.9.3\Lib\Editor\log4netPlastic.dll" />
-    <Analyzer Include="C:\Users\mrdga\Desktop\Unity Projects\Ghost-Game\Ghost-Game\Library\PackageCache\com.unity.collab-proxy@2.9.3\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.45f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.45f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -70,6 +67,7 @@
     <Compile Include="Assets\Scripts\Timer\GoalTrigger.cs" />
     <Compile Include="Assets\Scripts\TeleporterManager.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
+    <Compile Include="Assets\Scripts\GobletPuzzleManager.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\SimpleTeleporter.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
@@ -81,6 +79,7 @@
     <Compile Include="Assets\Scripts\RespawnPoint.cs" />
     <Compile Include="Assets\Scripts\Items\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\Timer\GameTimer.cs" />
+    <Compile Include="Assets\Scripts\Goblet.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Items\Chest.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem.cs" />
