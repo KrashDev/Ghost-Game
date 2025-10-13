@@ -55,6 +55,15 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Hole") && !isFalling)
         {
+            // CHECK FOR HULA LEI BEFORE FALLING!
+            if (PlayerInventory.Instance != null && PlayerInventory.Instance.CanWalkOverHoles())
+            {
+                Debug.Log("Walking over hole safely with Hula Lei!");
+                return; // Don't fall if player has Hula Lei
+            }
+
+            // Only fall if player doesn't have Hula Lei
+            Debug.Log("Falling into hole - no Hula Lei!");
             StartFalling();
         }
     }

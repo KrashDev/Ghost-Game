@@ -6,7 +6,7 @@ using UnityEngine;
 public class Hole : MonoBehaviour
 {
     [Header("Hole Properties")]
-    public bool requiresHoverBoots = true;
+    public bool requiresHulaLei = true;
 
     private void Start()
     {
@@ -22,39 +22,47 @@ public class Hole : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            HandlePlayerEnter(other.gameObject);
+        }
+    }
+
     private void HandlePlayerEnter(GameObject player)
     {
-        if (!requiresHoverBoots) return;
+        if (!requiresHulaLei)
+        {
+            // Hole doesn't require item, player can pass freely
+            return;
+        }
 
-        // Check if player has hover boots equipped
+        // Check if player has Hula Lei equipped
         if (PlayerInventory.Instance != null && PlayerInventory.Instance.CanWalkOverHoles())
         {
-            // Player can walk over the hole
-            Debug.Log("Walking over hole with Hover Boots!");
+            // Player can walk over the hole safely - do nothing
+            Debug.Log("Walking over hole with Hula Lei!");
+            return; // IMPORTANT: Exit here, don't fall!
         }
-        else
-        {
-            // Player falls or is blocked
-            HandlePlayerFall(player);
-        }
+
+        // If we reach here, player doesn't have Hula Lei - make them fall
+        HandlePlayerFall(player);
     }
 
     private void HandlePlayerFall(GameObject player)
     {
-        // You can implement different behaviors:
-        // 1. Respawn player at checkpoint
-        // 2. Take damage
-        // 3. Block movement
+        // Player falls into the hole
+        Debug.Log("Cannot cross hole without Hula Lei!");
 
-        Debug.Log("Cannot cross hole without Hover Boots!");
+        // Push player back to prevent them from crossing
+        Vector3 pushDirection = (player.transform.position - transform.position).normalized;
+        player.transform.position += pushDirection * 0.5f;
 
-        // Example: Push player back
-        PlayerMovement movement = player.GetComponent<PlayerMovement>();
-        if (movement != null)
-        {
-            // Reset player position slightly
-            Vector3 pushDirection = (player.transform.position - transform.position).normalized;
-            player.transform.position += pushDirection * 0.5f;
-        }
+        // Optional: Add additional fall behavior here
+        // - Respawn at checkpoint
+        // - Take damage
+        // - Play fall animation
+        // - Play fall sound
     }
 }

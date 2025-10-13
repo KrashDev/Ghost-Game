@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Update animator if available
-        UpdateAnimator();
+        //UpdateAnimator();
 
         // Handle interaction input - SPACEBAR
         if (Input.GetKeyDown(KeyCode.Space))

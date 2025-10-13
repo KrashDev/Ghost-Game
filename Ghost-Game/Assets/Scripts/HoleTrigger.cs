@@ -7,6 +7,9 @@ public class HoleTrigger : MonoBehaviour
     [Header("Hole Settings")]
     public bool showDebugGizmo = true;
     public Color gizmoColor = new Color(0, 0, 0, 0.5f);
+    public bool requiresHulaLei = true;
+
+    private Collider2D holeCollider;
 
     void Start()
     {
@@ -18,15 +21,44 @@ public class HoleTrigger : MonoBehaviour
         }
 
         // Ensure there's a trigger collider
-        Collider2D col = GetComponent<Collider2D>();
-        if (col == null)
+        holeCollider = GetComponent<Collider2D>();
+        if (holeCollider == null)
         {
             Debug.LogError($"HoleTrigger on {gameObject.name} requires a Collider2D component!");
         }
-        else if (!col.isTrigger)
+        else if (!holeCollider.isTrigger)
         {
             Debug.LogWarning($"Collider on {gameObject.name} is not set as trigger. Setting it now.");
-            col.isTrigger = true;
+            holeCollider.isTrigger = true;
+        }
+    }
+
+    void Update()
+    {
+        // Disable hole collider if player can walk over holes
+        if (requiresHulaLei && PlayerInventory.Instance != null && holeCollider != null)
+        {
+            bool canWalkOverHoles = PlayerInventory.Instance.CanWalkOverHoles();
+
+            // Disable the collider when player has Hula Lei
+            holeCollider.enabled = !canWalkOverHoles;
+
+            if (canWalkOverHoles)
+            {
+                // Optional: Change the tag so other systems don't detect it as a hole
+                if (gameObject.tag == "Hole")
+                {
+                    gameObject.tag = "Untagged";
+                }
+            }
+            else
+            {
+                // Re-enable hole tag when Hula Lei is not equipped
+                if (gameObject.tag != "Hole")
+                {
+                    gameObject.tag = "Hole";
+                }
+            }
         }
     }
 
@@ -37,7 +69,15 @@ public class HoleTrigger : MonoBehaviour
             Collider2D col = GetComponent<Collider2D>();
             if (col != null)
             {
-                Gizmos.color = gizmoColor;
+                // Change color based on whether it's active
+                Color drawColor = gizmoColor;
+                if (Application.isPlaying && PlayerInventory.Instance != null &&
+                    PlayerInventory.Instance.CanWalkOverHoles())
+                {
+                    drawColor = new Color(0, 1, 0, 0.3f); // Green when passable
+                }
+
+                Gizmos.color = drawColor;
 
                 if (col is BoxCollider2D)
                 {
