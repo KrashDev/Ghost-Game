@@ -658,6 +658,7 @@ GameObject:
   - component: {fileID: 31934441}
   - component: {fileID: 31934440}
   - component: {fileID: 31934439}
+  - component: {fileID: 31934442}
   m_Layer: 0
   m_Name: Teleporter7
   m_TagString: Untagged
@@ -741,7 +742,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -797,6 +798,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &31934442
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31934437}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &37108933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1245,6 +1267,7 @@ GameObject:
   - component: {fileID: 59462069}
   - component: {fileID: 59462067}
   - component: {fileID: 59462068}
+  - component: {fileID: 59462071}
   m_Layer: 0
   m_Name: Teleporter3
   m_TagString: Untagged
@@ -1268,7 +1291,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -1384,6 +1407,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1268212273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &59462071
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59462066}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &63399689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2314,6 +2358,7 @@ GameObject:
   - component: {fileID: 163079644}
   - component: {fileID: 163079643}
   - component: {fileID: 163079642}
+  - component: {fileID: 163079645}
   m_Layer: 0
   m_Name: Teleporter14
   m_TagString: Untagged
@@ -2397,7 +2442,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -2453,6 +2498,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &163079645
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163079640}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &164948670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22269,6 +22335,7 @@ GameObject:
   - component: {fileID: 458501579}
   - component: {fileID: 458501578}
   - component: {fileID: 458501580}
+  - component: {fileID: 458501581}
   m_Layer: 0
   m_Name: FinalTeleporter
   m_TagString: Untagged
@@ -22359,10 +22426,31 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
+--- !u!95 &458501581
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458501577}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &460436792
 GameObject:
   m_ObjectHideFlags: 0
@@ -99413,6 +99501,7 @@ GameObject:
   - component: {fileID: 580681909}
   - component: {fileID: 580681908}
   - component: {fileID: 580681907}
+  - component: {fileID: 580681910}
   m_Layer: 0
   m_Name: Teleporter16
   m_TagString: Untagged
@@ -99496,7 +99585,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -99552,6 +99641,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &580681910
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580681905}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &586862305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102203,6 +102313,7 @@ GameObject:
   - component: {fileID: 815091581}
   - component: {fileID: 815091579}
   - component: {fileID: 815091580}
+  - component: {fileID: 815091583}
   m_Layer: 0
   m_Name: Teleporter6
   m_TagString: Untagged
@@ -102226,7 +102337,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -102342,6 +102453,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1268212273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &815091583
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815091578}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &818061154
 GameObject:
   m_ObjectHideFlags: 0
@@ -102354,6 +102486,7 @@ GameObject:
   - component: {fileID: 818061158}
   - component: {fileID: 818061157}
   - component: {fileID: 818061156}
+  - component: {fileID: 818061159}
   m_Layer: 0
   m_Name: Teleporter11
   m_TagString: Untagged
@@ -102437,7 +102570,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -102493,6 +102626,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &818061159
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818061154}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &818341644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103402,6 +103556,7 @@ GameObject:
   - component: {fileID: 954787405}
   - component: {fileID: 954787404}
   - component: {fileID: 954787403}
+  - component: {fileID: 954787406}
   m_Layer: 0
   m_Name: Teleporter17
   m_TagString: Untagged
@@ -103485,7 +103640,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -103541,6 +103696,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &954787406
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954787401}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &958963820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103933,7 +104109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25.95, y: 12.98}
+  m_AnchoredPosition: {x: -33, y: -1.78}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1018768018
@@ -106835,6 +107011,7 @@ GameObject:
   - component: {fileID: 1235594518}
   - component: {fileID: 1235594516}
   - component: {fileID: 1235594517}
+  - component: {fileID: 1235594520}
   m_Layer: 0
   m_Name: Teleporter12
   m_TagString: Untagged
@@ -106858,7 +107035,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -106974,6 +107151,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1268212273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1235594520
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235594515}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1235907047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108447,6 +108645,7 @@ GameObject:
   - component: {fileID: 1357359291}
   - component: {fileID: 1357359290}
   - component: {fileID: 1357359289}
+  - component: {fileID: 1357359292}
   m_Layer: 0
   m_Name: Teleporter15
   m_TagString: Untagged
@@ -108530,7 +108729,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -108586,6 +108785,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1357359292
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357359287}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1376037682
 GameObject:
   m_ObjectHideFlags: 0
@@ -108808,6 +109028,7 @@ GameObject:
   - component: {fileID: 1384164376}
   - component: {fileID: 1384164375}
   - component: {fileID: 1384164374}
+  - component: {fileID: 1384164377}
   m_Layer: 0
   m_Name: Teleporter8
   m_TagString: Untagged
@@ -108891,7 +109112,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -108947,6 +109168,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1384164377
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384164372}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1384274600
 GameObject:
   m_ObjectHideFlags: 0
@@ -109453,6 +109695,7 @@ GameObject:
   - component: {fileID: 1426696863}
   - component: {fileID: 1426696866}
   - component: {fileID: 1426696865}
+  - component: {fileID: 1426696867}
   m_Layer: 0
   m_Name: StartingTeleporter
   m_TagString: Untagged
@@ -109501,7 +109744,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 1d112fa0a9c4500499f1e36c98f174cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f74a8a66c8136d449de0b71b7bab82f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109543,7 +109786,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -109592,6 +109835,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.48342633}
   m_EdgeRadius: 0
+--- !u!95 &1426696867
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426696862}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1443972245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110106,6 +110370,7 @@ GameObject:
   - component: {fileID: 1530269601}
   - component: {fileID: 1530269603}
   - component: {fileID: 1530269604}
+  - component: {fileID: 1530269605}
   m_Layer: 0
   m_Name: Teleporter4
   m_TagString: Untagged
@@ -110196,7 +110461,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -110245,6 +110510,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
+--- !u!95 &1530269605
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530269600}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1540965200
 GameObject:
   m_ObjectHideFlags: 0
@@ -111270,6 +111556,7 @@ GameObject:
   - component: {fileID: 1561144289}
   - component: {fileID: 1561144288}
   - component: {fileID: 1561144287}
+  - component: {fileID: 1561144290}
   m_Layer: 0
   m_Name: Teleporter10
   m_TagString: Untagged
@@ -111353,7 +111640,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -111409,6 +111696,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1561144290
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561144285}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1568791750
 GameObject:
   m_ObjectHideFlags: 0
@@ -112583,6 +112891,7 @@ GameObject:
   - component: {fileID: 1673306972}
   - component: {fileID: 1673306974}
   - component: {fileID: 1673306975}
+  - component: {fileID: 1673306976}
   m_Layer: 0
   m_Name: Teleporter2
   m_TagString: Untagged
@@ -112673,7 +112982,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -112722,6 +113031,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
+--- !u!95 &1673306976
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673306971}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1676980365
 GameObject:
   m_ObjectHideFlags: 0
@@ -113046,6 +113376,7 @@ GameObject:
   - component: {fileID: 1730323827}
   - component: {fileID: 1730323825}
   - component: {fileID: 1730323826}
+  - component: {fileID: 1730323829}
   m_Layer: 0
   m_Name: Teleporter5
   m_TagString: Untagged
@@ -113069,7 +113400,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -113185,6 +113516,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1268212273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1730323829
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730323824}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1739123786
 GameObject:
   m_ObjectHideFlags: 0
@@ -118072,6 +118424,7 @@ GameObject:
   - component: {fileID: 1990004748}
   - component: {fileID: 1990004747}
   - component: {fileID: 1990004746}
+  - component: {fileID: 1990004749}
   m_Layer: 0
   m_Name: Teleporter13
   m_TagString: Untagged
@@ -118155,7 +118508,7 @@ MonoBehaviour:
   teleportDelay: 0.2
   cooldownTime: 0.5
   spriteRenderer: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   teleportColor: {r: 1, g: 1, b: 1, a: 1}
   teleportSound: {fileID: 0}
   teleportEffect: {fileID: 0}
@@ -118211,6 +118564,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1990004749
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990004744}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7773e7d09abdef40a4af73773b885a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1993530321
 PrefabInstance:
   m_ObjectHideFlags: 0
