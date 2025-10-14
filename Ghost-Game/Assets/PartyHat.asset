@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemName: Party Hat
-  description: Allows Pip to go though certain walls
+  description: Now you can walk through walls, well some of them, and you're ready
+    to party!
   icon: {fileID: 21300000, guid: c8be726d42008fc42a68c51b5f55abbf, type: 3}
   characterOverlay: {fileID: 21300000, guid: c8be726d42008fc42a68c51b5f55abbf, type: 3}
   canWalkOverHoles: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemName: Hula Lei
-  description: Pip can hover over holes
+  description: Holes? Fly right over them, Aloha!
   icon: {fileID: 21300000, guid: ce3e88ad5cbc64c429e8672f1d72b45c, type: 3}
   characterOverlay: {fileID: 21300000, guid: ce3e88ad5cbc64c429e8672f1d72b45c, type: 3}
   canWalkOverHoles: 1

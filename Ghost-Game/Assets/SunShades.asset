@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemName: Sun Shades
-  description: Allows Pip to see what is hidden
+  description: Now you can see hidden objects, and you look rad!
   icon: {fileID: 21300000, guid: 6878c7ac37253c44abef115961e9fd40, type: 3}
   characterOverlay: {fileID: 21300000, guid: 6878c7ac37253c44abef115961e9fd40, type: 3}
   canWalkOverHoles: 0

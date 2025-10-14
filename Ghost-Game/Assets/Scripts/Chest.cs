@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // TextMesh Pro namespace
 
 public class Chest : MonoBehaviour
 {
@@ -15,14 +16,22 @@ public class Chest : MonoBehaviour
 
     [Header("Interaction")]
     public float interactionRange = 1.5f;
-    public KeyCode interactKey = KeyCode.E;
+    public KeyCode interactKey = KeyCode.Space;
+    public KeyCode closeUIKey = KeyCode.Space;
 
     [Header("Item Display")]
     public GameObject itemDisplayPrefab;
     public Vector3 itemDisplayOffset = new Vector3(0, 1f, 0);
 
+    [Header("UI Panel")]
+    public GameObject itemUIPanel;
+    public UnityEngine.UI.Image itemUIIcon;
+    public TextMeshProUGUI itemUIName;
+    public TextMeshProUGUI itemUIDescription;
+
     private bool playerInRange = false;
     private GameObject itemDisplay;
+    private bool isUIOpen = false;
 
     private void Start()
     {
@@ -30,13 +39,26 @@ public class Chest : MonoBehaviour
         {
             chestRenderer.sprite = closedSprite;
         }
+
+        // Hide UI panel at start
+        if (itemUIPanel != null)
+        {
+            itemUIPanel.SetActive(false);
+        }
     }
 
     private void Update()
     {
         CheckPlayerProximity();
 
-        if (playerInRange && !isOpen && Input.GetKeyDown(interactKey))
+        // Handle UI panel closing
+        if (isUIOpen && Input.GetKeyDown(closeUIKey))
+        {
+            CloseUI();
+        }
+
+        // Handle chest opening
+        if (playerInRange && !isOpen && !isUIOpen && Input.GetKeyDown(interactKey))
         {
             OpenChest();
         }
@@ -69,11 +91,56 @@ public class Chest : MonoBehaviour
             PlayerInventory.Instance.AddItem(containedItem);
         }
 
-        // Show item popup
+        // Show item popup in world
         ShowItemAcquired();
+
+        // Show UI panel
+        ShowItemUI();
 
         // Play sound (if you have audio)
         // AudioManager.Instance.PlaySound("ChestOpen");
+    }
+
+    private void ShowItemUI()
+    {
+        if (itemUIPanel == null || containedItem == null) return;
+
+        // Update UI elements
+        if (itemUIIcon != null && containedItem.icon != null)
+        {
+            itemUIIcon.sprite = containedItem.icon;
+            itemUIIcon.enabled = true;
+        }
+
+        if (itemUIName != null)
+        {
+            itemUIName.text = containedItem.itemName;
+        }
+
+        if (itemUIDescription != null)
+        {
+            itemUIDescription.text = containedItem.description;
+        }
+
+        // Show the panel
+        itemUIPanel.SetActive(true);
+        isUIOpen = true;
+
+        // Pause game or disable player movement if desired
+        // Time.timeScale = 0f; // Uncomment to pause game
+    }
+
+    private void CloseUI()
+    {
+        if (itemUIPanel != null)
+        {
+            itemUIPanel.SetActive(false);
+        }
+
+        isUIOpen = false;
+
+        // Resume game if you paused it
+        // Time.timeScale = 1f; // Uncomment if you paused game
     }
 
     private void ShowItemAcquired()
