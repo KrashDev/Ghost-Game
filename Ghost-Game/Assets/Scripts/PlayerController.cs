@@ -19,9 +19,39 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        InitializeComponents();
+    }
+
+    void InitializeComponents()
+    {
+        // Get or add Rigidbody2D
         rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            Debug.LogError("PlayerController: Rigidbody2D component is missing!");
+            rb = gameObject.AddComponent<Rigidbody2D>();
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.gravityScale = 0;
+        }
+
+        // Get SpriteRenderer - check both on this object and children
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            if (spriteRenderer == null)
+            {
+                Debug.LogError("PlayerController: No SpriteRenderer found on player or children!");
+            }
+        }
+
+        // Get Collider2D
         playerCollider = GetComponent<Collider2D>();
+        if (playerCollider == null)
+        {
+            Debug.LogError("PlayerController: Collider2D component is missing!");
+            playerCollider = gameObject.AddComponent<BoxCollider2D>();
+        }
 
         // Set respawn point to current position if not set
         if (respawnPoint == null)
@@ -29,6 +59,7 @@ public class PlayerController : MonoBehaviour
             GameObject respawnObj = new GameObject("RespawnPoint");
             respawnPoint = respawnObj.transform;
             respawnPoint.position = transform.position;
+            Debug.Log("PlayerController: Created default respawn point at current position");
         }
     }
 
@@ -44,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isFalling)
+        if (!isFalling && rb != null)
         {
             // Move player
             rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
@@ -70,14 +101,25 @@ public class PlayerController : MonoBehaviour
 
     void StartFalling()
     {
+        // Safety check before starting fall
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("PlayerController: Cannot fall - SpriteRenderer is null!");
+            Respawn(); // Just respawn without animation
+            return;
+        }
+
         isFalling = true;
-        playerCollider.enabled = false;
+        if (playerCollider != null)
+        {
+            playerCollider.enabled = false;
+        }
 
         // Start fall animation
         StartCoroutine(FallAndRespawn());
     }
 
-    System.Collections.IEnumerator FallAndRespawn()
+    IEnumerator FallAndRespawn()
     {
         float elapsed = 0f;
         Vector3 startScale = transform.localScale;
@@ -91,10 +133,13 @@ public class PlayerController : MonoBehaviour
             // Scale down
             transform.localScale = Vector3.Lerp(startScale, Vector3.zero, progress);
 
-            // Fade out
-            Color color = spriteRenderer.color;
-            color.a = 1f - progress;
-            spriteRenderer.color = color;
+            // Fade out (with null check)
+            if (spriteRenderer != null)
+            {
+                Color color = spriteRenderer.color;
+                color.a = 1f - progress;
+                spriteRenderer.color = color;
+            }
 
             yield return null;
         }
@@ -106,21 +151,39 @@ public class PlayerController : MonoBehaviour
     void Respawn()
     {
         // Reset position
-        transform.position = respawnPoint.position;
+        if (respawnPoint != null)
+        {
+            transform.position = respawnPoint.position;
+        }
+        else
+        {
+            Debug.LogWarning("PlayerController: No respawn point set!");
+        }
 
         // Reset scale and alpha
         transform.localScale = Vector3.one;
-        Color color = spriteRenderer.color;
-        color.a = 1f;
-        spriteRenderer.color = color;
+
+        if (spriteRenderer != null)
+        {
+            Color color = spriteRenderer.color;
+            color.a = 1f;
+            spriteRenderer.color = color;
+        }
 
         // Re-enable
-        playerCollider.enabled = true;
+        if (playerCollider != null)
+        {
+            playerCollider.enabled = true;
+        }
+
         isFalling = false;
 
         // Reset movement
         movement = Vector2.zero;
-        rb.velocity = Vector2.zero;
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 
     // Optional: Method to set respawn point dynamically
@@ -132,5 +195,24 @@ public class PlayerController : MonoBehaviour
             respawnPoint = respawnObj.transform;
         }
         respawnPoint.position = newRespawnPoint;
+    }
+
+    // Debug method to check component setup
+    void OnValidate()
+    {
+        if (Application.isPlaying) return;
+
+        if (GetComponent<Rigidbody2D>() == null)
+        {
+            Debug.LogWarning("PlayerController: Missing Rigidbody2D component!");
+        }
+        if (GetComponent<SpriteRenderer>() == null && GetComponentInChildren<SpriteRenderer>() == null)
+        {
+            Debug.LogWarning("PlayerController: Missing SpriteRenderer component!");
+        }
+        if (GetComponent<Collider2D>() == null)
+        {
+            Debug.LogWarning("PlayerController: Missing Collider2D component!");
+        }
     }
 }
