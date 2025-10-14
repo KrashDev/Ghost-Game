@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\Hole.cs" />
     <Compile Include="Assets\Scripts\PlayerInventory.cs" />
+    <Compile Include="Assets\Scripts\Start\PlayerDataManager.cs" />
     <Compile Include="Assets\Scripts\GobletPuzzleManager.cs" />
     <Compile Include="Assets\Scripts\PhantomWall.cs" />
     <Compile Include="Assets\Scripts\HiddenObject.cs" />
@@ -74,12 +75,15 @@
     <Compile Include="Assets\Scripts\SimpleTeleporter.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\ExampleInteractable.cs" />
+    <Compile Include="Assets\Scripts\Start\StartMenuController.cs" />
     <Compile Include="Assets\Scripts\Chest.cs" />
+    <Compile Include="Assets\Scripts\InGameFinishUI.cs" />
     <Compile Include="Assets\Scripts\Teleporter.cs" />
     <Compile Include="Assets\Scripts\RespawnPoint.cs" />
     <Compile Include="Assets\Scripts\Timer\GameTimer.cs" />
     <Compile Include="Assets\Scripts\Goblet.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Start\FinishScreenController.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem.cs" />

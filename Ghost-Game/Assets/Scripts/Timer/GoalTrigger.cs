@@ -1,15 +1,14 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class GoalTrigger : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameTimer gameTimer;
+    [SerializeField] private InGameFinishUI finishUI;
 
     [Header("Settings")]
     [SerializeField] private string playerTag = "Player";
-    [SerializeField] private bool reloadSceneOnComplete = false;
-    [SerializeField] private float reloadDelay = 2f;
 
     private bool goalReached = false;
 
@@ -19,6 +18,12 @@ public class GoalTrigger : MonoBehaviour
         if (gameTimer == null)
         {
             gameTimer = FindObjectOfType<GameTimer>();
+        }
+
+        // Find the finish UI if not assigned
+        if (finishUI == null)
+        {
+            finishUI = FindObjectOfType<InGameFinishUI>();
         }
     }
 
@@ -35,21 +40,22 @@ public class GoalTrigger : MonoBehaviour
         goalReached = true;
 
         // Stop the timer
+        float finalTime = 0f;
         if (gameTimer != null)
         {
             gameTimer.StopTimer();
-            Debug.Log($"Goal reached! Final time: {gameTimer.FinalTime}");
+            finalTime = gameTimer.FinalTime;
+            Debug.Log($"Goal reached! Final time: {finalTime}");
         }
 
-        // Optional: Reload scene
-        if (reloadSceneOnComplete)
+        // Show finish UI
+        if (finishUI != null)
         {
-            Invoke(nameof(ReloadScene), reloadDelay);
+            finishUI.ShowFinishUI(finalTime);
         }
-    }
-
-    private void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        else
+        {
+            Debug.LogWarning("Finish UI not found!");
+        }
     }
 }
