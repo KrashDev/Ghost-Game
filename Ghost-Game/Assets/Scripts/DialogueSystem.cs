@@ -7,19 +7,16 @@ public class DialogueSystem : MonoBehaviour
 {
     [Header("UI References")]
     [SerializeField] private GameObject dialoguePanel;
-    [SerializeField] private Image dialogueBox;
-    [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private GameObject continueIndicator;
 
     [Header("Dialogue Settings")]
     [SerializeField] private float textSpeed = 0.05f;
 
     private KeyCode advanceKey = KeyCode.Space; // Hardcoded to spacebar
-
     private bool isTyping = false;
     private bool dialogueActive = false;
     private Coroutine typingCoroutine;
+    private string fullText = "";
 
     private void Start()
     {
@@ -32,7 +29,7 @@ public class DialogueSystem : MonoBehaviour
     {
         if (!dialogueActive) return;
 
-        // Advance dialogue or skip typing
+        // Press space to skip typing or close dialogue
         if (Input.GetKeyDown(advanceKey))
         {
             if (isTyping)
@@ -42,23 +39,33 @@ public class DialogueSystem : MonoBehaviour
             }
             else
             {
-                // Close dialogue (or advance to next line in a queue system)
+                // Close dialogue
                 EndDialogue();
             }
         }
     }
 
     /// <summary>
-    /// Show dialogue with specified speaker name and text
+    /// Show dialogue with specified text
     /// </summary>
-    public void ShowDialogue(string speakerName, string text)
+    public void ShowDialogue(string text)
     {
+        // Error checking
+        if (dialoguePanel == null)
+        {
+            Debug.LogError("DialoguePanel is not assigned in DialogueSystem!");
+            return;
+        }
+
+        if (dialogueText == null)
+        {
+            Debug.LogError("DialogueText is not assigned in DialogueSystem!");
+            return;
+        }
+
         dialogueActive = true;
         dialoguePanel.SetActive(true);
-
-        // Set speaker name
-        if (nameText != null)
-            nameText.text = speakerName;
+        fullText = text;
 
         // Start typing effect
         if (typingCoroutine != null)
@@ -75,9 +82,6 @@ public class DialogueSystem : MonoBehaviour
         isTyping = true;
         dialogueText.text = "";
 
-        if (continueIndicator != null)
-            continueIndicator.SetActive(false);
-
         foreach (char letter in text.ToCharArray())
         {
             dialogueText.text += letter;
@@ -85,9 +89,6 @@ public class DialogueSystem : MonoBehaviour
         }
 
         isTyping = false;
-
-        if (continueIndicator != null)
-            continueIndicator.SetActive(true);
     }
 
     /// <summary>
@@ -102,9 +103,7 @@ public class DialogueSystem : MonoBehaviour
         }
 
         isTyping = false;
-
-        if (continueIndicator != null)
-            continueIndicator.SetActive(true);
+        dialogueText.text = fullText;
     }
 
     /// <summary>
@@ -115,7 +114,6 @@ public class DialogueSystem : MonoBehaviour
         dialogueActive = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
-        nameText.text = "";
     }
 
     /// <summary>

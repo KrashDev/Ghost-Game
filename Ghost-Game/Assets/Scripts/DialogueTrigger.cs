@@ -9,7 +9,6 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour, IInteractable
 {
     [Header("Dialogue Content")]
-    [SerializeField] private string speakerName = "NPC";
     [TextArea(3, 10)]
     [SerializeField] private string dialogueText = "Hello! This is a dialogue message.";
 
@@ -38,10 +37,10 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
             return;
         }
 
-        // Trigger dialogue
+        // Trigger dialogue - ONLY ONE ARGUMENT NOW
         if (dialogueSystem != null)
         {
-            dialogueSystem.ShowDialogue(speakerName, dialogueText);
+            dialogueSystem.ShowDialogue(dialogueText);
             hasBeenTriggered = true;
         }
     }
