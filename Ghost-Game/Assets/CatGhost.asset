@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CatGhost
   m_EditorClassIdentifier: 
   characterName: Cat Ghosr
-  characterSprite: {fileID: 21300000, guid: d0dcb288e57d4da4382cc9417d375668, type: 3}
+  characterSprite: {fileID: 21300000, guid: 45581ab5c3bf7514995aad8743152730, type: 3}
