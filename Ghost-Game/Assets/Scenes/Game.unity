@@ -109839,7 +109839,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.1240077, y: 2.5270998}
+  m_Offset: {x: 1.2882676, y: 2.3628402}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -109850,7 +109850,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.783599, y: 2.7631803}
+  m_Size: {x: 2.455079, y: 2.43466}
   m_EdgeRadius: 0
 --- !u!1 &1002695272
 GameObject:
@@ -110174,7 +110174,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018768015}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6f03f120746a7f4387a18bb4bd0c14e, type: 3}
   m_Name: 
@@ -110231,7 +110231,7 @@ SpriteRenderer:
   m_Size: {x: 1.5, y: 2.9375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &1018768023
@@ -110242,7 +110242,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018768015}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d021c5aa1ef27324fa2e5688b5eedb30, type: 2}
   m_CullingMode: 0
@@ -110279,7 +110279,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018768015}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2260eb77028ca944fa0e3791265337ce, type: 3}
   m_Name: 
@@ -121546,7 +121546,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0713277, y: 4.8254232}
+  m_Offset: {x: 0.86650085, y: 4.5796304}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -121557,7 +121557,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.888959, y: 8.056849}
+  m_Size: {x: 2.4793053, y: 7.565263}
   m_EdgeRadius: 0
 --- !u!1001 &1716909604
 PrefabInstance:
@@ -122458,7 +122458,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.1874981, y: 0.7485974}
+  m_Offset: {x: 1.3759394, y: 1.0599351}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -122469,7 +122469,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.811512, y: 6.56191}
+  m_Size: {x: 2.4346294, y: 5.9392347}
   m_EdgeRadius: 0
 --- !u!4 &1806148357
 Transform:
@@ -123943,7 +123943,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.84956837, y: 2.554452}
+  m_Offset: {x: 0.4071417, y: 2.6036108}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -123954,7 +123954,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.8262386, y: 1.7142508}
+  m_Size: {x: 5.9413853, y: 0.96048594}
   m_EdgeRadius: 0
 --- !u!1 &1874669876
 GameObject:
@@ -126425,7 +126425,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.820128, y: 2.1389532}
+  m_Offset: {x: -2.820128, y: 2.2864292}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -126436,7 +126436,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.67187, y: 1.5748825}
+  m_Size: {x: 10.67187, y: 1.2799306}
   m_EdgeRadius: 0
 --- !u!1001 &1958630300
 PrefabInstance:
@@ -129356,7 +129356,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0420609, y: 2.4627132}
+  m_Offset: {x: 0.8536196, y: 2.2578857}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -129367,7 +129367,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8304253, y: 2.634407}
+  m_Size: {x: 2.4535427, y: 2.224752}
   m_EdgeRadius: 0
 --- !u!1001 &2123331788
 PrefabInstance:

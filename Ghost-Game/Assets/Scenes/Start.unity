@@ -691,7 +691,7 @@ MonoBehaviour:
   nameInputField: {fileID: 1303145280}
   startButton: {fileID: 87748409}
   errorText: {fileID: 0}
-  gameSceneName: SampleScene
+  gameSceneName: CharacterSelect
   minNameLength: 2
   maxNameLength: 20
 --- !u!4 &1115828146

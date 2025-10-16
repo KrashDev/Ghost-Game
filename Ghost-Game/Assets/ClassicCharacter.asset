@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c14ee4805bf2ba948b20a78dad5046d0, type: 3}
+  m_Name: ClassicCharacter
+  m_EditorClassIdentifier: 
+  characterName: Classic
+  characterSprite: {fileID: 21300000, guid: f655f774a454b514bb32674889b5a1ea, type: 3}
