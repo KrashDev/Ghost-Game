@@ -14,6 +14,10 @@ public class Chest : MonoBehaviour
     public Sprite closedSprite;
     public Sprite openSprite;
 
+    [Header("Audio")]
+    public AudioClip openChest;
+    private AudioSource audioSource;
+
     [Header("Interaction")]
     public float interactionRange = 1.5f;
     public KeyCode interactKey = KeyCode.Space;
@@ -45,6 +49,8 @@ public class Chest : MonoBehaviour
         {
             itemUIPanel.SetActive(false);
         }
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -97,8 +103,9 @@ public class Chest : MonoBehaviour
         // Show UI panel
         ShowItemUI();
 
-        // Play sound (if you have audio)
-        // AudioManager.Instance.PlaySound("ChestOpen");
+        // Play sound
+        audioSource.clip = openChest;
+        audioSource.Play();
     }
 
     private void ShowItemUI()
